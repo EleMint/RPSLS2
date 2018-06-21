@@ -9,7 +9,7 @@ namespace RPSLR2
     class Computer : Player
     {
         // Member Variables (HAS A)
-
+        int randomNumber;
         // Constructor
         public Computer(string name)
         {
@@ -19,7 +19,7 @@ namespace RPSLR2
         public override string MakeMove()
         {
             Random randomNumberGenerator = new Random();
-            int randomNumber = randomNumberGenerator.Next(1, 5);
+            randomNumber = randomNumberGenerator.Next(1, 5);
             switch (randomNumber)
             {
                 case 1:

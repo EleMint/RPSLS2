@@ -33,6 +33,11 @@ namespace RPSLR2
             player2Score += 1;
         }
 
+        public void DisplayMoves(string player1Name, string player2Name, string player1Move, string player2Move)
+        {
+            Console.WriteLine("\r\n" + "--Moves--" + "\r\n" + player1Name + ": " + player1Move + "\r\n" + player2Name + ": " + player2Move);
+        }
+
         public void DisplayScore(string player1Name, string player2Name)
         {
             Console.WriteLine("\r\n" + "--Scores--" + "\r\n" + player1Name + ": " + player1Score + "\r\n" + player2Name + ": " + player2Score);

@@ -18,7 +18,7 @@ namespace RPSLR2
         // Member Methods (CAN DO)
         public override string MakeMove()
         {
-            Console.WriteLine("\r\n" + "Please Pick A Weapon. (Rock, Paper, Scissors, Lizard, Spock");
+            Console.WriteLine("\r\n" + "Please Pick A Weapon. (Rock, Paper, Scissors, Lizard, Spock)");
             move = Console.ReadLine().ToLower();
             if (move == "rock" || move == "paper" || move == "scissors" || move == "lizard" || move == "spock")
             {

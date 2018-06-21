@@ -19,6 +19,7 @@ namespace RPSLR2
         public int scoreMax = 2;
         public string currentRoundWinner;
         public string gameWinner;
+        public int numberOfComputers;
         
         // Member Methods (CAN DO)
 
@@ -29,8 +30,25 @@ namespace RPSLR2
             do
             {
                 player1Move = player1.MakeMove();
+                if(numberOfComputers == 2)
+                {
+                    Console.ReadLine();
+                }
+                else if(numberOfComputers == 0)
+                {
+                    Console.Clear();
+                }
                 player2Move = player2.MakeMove();
+                if (numberOfComputers == 2)
+                {
+                    Console.ReadLine();
+                }
+                else if(numberOfComputers == 0)
+                {
+                    Console.Clear();
+                }
                 currentRoundWinner = this.DecideRoundWinner(player1Move, player2Move);
+                scoreBoard.DisplayMoves(player1.name, player2.name, player1Move, player2Move);
                 this.AddPointToRoundWinner(currentRoundWinner);
                 scoreBoard.DisplayScore(player1.name, player2.name);
             }
@@ -42,9 +60,13 @@ namespace RPSLR2
 
         public void PickGameMode()
         {
-            Console.WriteLine("Welcome To: Rock, Paper, Scissors, Lizard, Spock");
+            Console.WriteLine("\r\n" + "Welcome To: Rock, Paper, Scissors, Lizard, Spock");
             Console.WriteLine("Press '1' For Single-Player, '2' For Multi-Player, Or '3' For A Show Down Between Computers");
             userInput = Console.ReadLine();
+            if(userInput == null)
+            {
+
+            }
             bool correctMode = (userInput == "1" || userInput == "2" || userInput == "3");
             do
             {
@@ -54,16 +76,19 @@ namespace RPSLR2
                         Console.WriteLine("\r\n" + "Please Enter Your Name:");
                         player1 = new Human(Console.ReadLine());
                         player2 = new Computer("Computer");
+                        numberOfComputers = 1;
                         break;
                     case "2":
                         Console.WriteLine("\r\n" + "Player 1, Please Enter Your Name:");
                         player1 = new Human(Console.ReadLine());
                         Console.WriteLine("\r\n" + "Player 2, Please Enter Your Name:");
                         player2 = new Human(Console.ReadLine());
+                        numberOfComputers = 0;
                         break;
                     case "3":
                         player1 = new Computer("Computer1");
                         player2 = new Computer("Computer2");
+                        numberOfComputers = 2;
                         break;
                     default:
                         Console.WriteLine("\r\n" + "Please Try Again With The Described Game Modes");
@@ -90,10 +115,10 @@ namespace RPSLR2
                             roundWinner = "player2";
                             break;
                         case "scissors":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "lizard":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "spock":
                             roundWinner = "player2";
@@ -104,7 +129,7 @@ namespace RPSLR2
                     switch (player2Move)
                     {
                         case "rock":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "paper":
                             roundWinner = "null";
@@ -116,7 +141,7 @@ namespace RPSLR2
                             roundWinner = "player2";
                             break;
                         case "spock":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                     }
                     break;
@@ -127,13 +152,13 @@ namespace RPSLR2
                             roundWinner = "player2";
                             break;
                         case "paper":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "scissors":
                             roundWinner = "null";
                             break;
                         case "lizard":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "spock":
                             roundWinner = "player2";
@@ -147,7 +172,7 @@ namespace RPSLR2
                             roundWinner = "player2";
                             break;
                         case "paper":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "scissors":
                             roundWinner = "player2";
@@ -156,7 +181,7 @@ namespace RPSLR2
                             roundWinner = "null";
                             break;
                         case "spock":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                     }
                     break;
@@ -164,13 +189,13 @@ namespace RPSLR2
                     switch (player2Move)
                     {
                         case "rock":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "paper":
                             roundWinner = "player2";
                             break;
                         case "scissors":
-                            roundWinner = "playerOne";
+                            roundWinner = "player1";
                             break;
                         case "lizard":
                             roundWinner = "player2";
@@ -205,10 +230,12 @@ namespace RPSLR2
             if(Console.ReadLine().ToLower() == "yes")
             {
                 Game newGame = new Game();
+                newGame.RunGame();
             }
             else
             {
                 Console.WriteLine("\r\n" + "Thank's For Playing");
+                Console.ReadLine();
             }
         }
 
