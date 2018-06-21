@@ -9,29 +9,51 @@ namespace RPSLR2
     class Game
     {
         // Member Variables (HAS A)
+
         public Player player1;
         public Player player2;
         ScoreBoard scoreBoard = new ScoreBoard();
+        public string userInput;
         public string player1Move;
         public string player2Move;
         public int scoreMax = 2;
         public string currentRoundWinner;
         public string gameWinner;
+        
+        // Member Methods (CAN DO)
 
-        // Constructor
-        public Game()
+        public void RunGame()
         {
-            Console.WriteLine("Welcome To: Rock, Paper, Scissors, Lizard, Spock");
-            Console.WriteLine("Press '1' for Single-Player, '2' for Multi-Player, or '3' for ");
-            bool correctMode = (Console.ReadLine() == "1" || Console.ReadLine() == "2" || Console.ReadLine() == "3");
+            // "Master Method"
+            this.PickGameMode();
             do
             {
-                switch (Console.ReadLine())
+                player1Move = player1.MakeMove();
+                player2Move = player2.MakeMove();
+                currentRoundWinner = this.DecideRoundWinner(player1Move, player2Move);
+                this.AddPointToRoundWinner(currentRoundWinner);
+                scoreBoard.DisplayScore(player1.name, player2.name);
+            }
+            while (scoreBoard.player1Score < scoreMax && scoreBoard.player2Score < scoreMax);
+            gameWinner = this.DetermineGameWinner(scoreBoard.player1Score, scoreBoard.player2Score);
+            this.DisplayGameWinner(gameWinner);
+            this.AskToPlayAgain();
+        }
+
+        public void PickGameMode()
+        {
+            Console.WriteLine("Welcome To: Rock, Paper, Scissors, Lizard, Spock");
+            Console.WriteLine("Press '1' For Single-Player, '2' For Multi-Player, Or '3' For A Show Down Between Computers");
+            userInput = Console.ReadLine();
+            bool correctMode = (userInput == "1" || userInput == "2" || userInput == "3");
+            do
+            {
+                switch (userInput)
                 {
                     case "1":
                         Console.WriteLine("\r\n" + "Please Enter Your Name:");
                         player1 = new Human(Console.ReadLine());
-                        player2 = new Computer("Computer1");
+                        player2 = new Computer("Computer");
                         break;
                     case "2":
                         Console.WriteLine("\r\n" + "Player 1, Please Enter Your Name:");
@@ -50,25 +72,6 @@ namespace RPSLR2
                 }
             }
             while (correctMode == false);
-        }
-
-        // Member Methods (CAN DO)
-
-        public void RunGame()
-        {
-            // "Master Method"
-            do
-            {
-                player1Move = player1.MakeMove();
-                player2Move = player2.MakeMove();
-                currentRoundWinner = this.DecideRoundWinner(player1Move, player2Move);
-                this.AddPointToRoundWinner(currentRoundWinner);
-                scoreBoard.DisplayScore(player1.name, player2.name);
-            }
-            while (scoreBoard.player1Score < scoreMax && scoreBoard.player2Score < scoreMax);
-            gameWinner = this.DetermineGameWinner(scoreBoard.player1Score, scoreBoard.player2Score);
-            this.DisplayGameWinner(gameWinner);
-            this.AskToPlayAgain();
         }
 
         public string DecideRoundWinner(string player1Move, string player2Move)
