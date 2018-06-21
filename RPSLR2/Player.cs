@@ -11,9 +11,21 @@ namespace RPSLR2
         // Member Variables (HAS A)
         public string name;
         public string move;
+        public List<string> listOfGestures = new List<string>();
+
+        public Player()
+        {
+            listOfGestures.Add("rock");
+            listOfGestures.Add("paper");
+            listOfGestures.Add("scissors");
+            listOfGestures.Add("lizard");
+            listOfGestures.Add("spock");
+        }
+
+        
 
         // Member Methods (CAN DO)
-        public virtual string MakeMove()
+        public virtual string MakeMove(int numberOfComputers)
         {
             return "null";
         }

@@ -16,25 +16,11 @@ namespace RPSLR2
             this.name = name;
         }
         // Member Methods (CAN DO)
-        public override string MakeMove()
+        public override string MakeMove(int numberofComputers)
         {
             Random randomNumberGenerator = new Random();
             randomNumber = randomNumberGenerator.Next(1, 5);
-            switch (randomNumber)
-            {
-                case 1:
-                    return "rock";
-                case 2:
-                    return "paper";
-                case 3:
-                    return "scissors";
-                case 4:
-                    return "lizard";
-                case 5:
-                    return "spock";
-                default:
-                    return "null";
-            }
+            return listOfGestures[randomNumber];
         }
     }
 }

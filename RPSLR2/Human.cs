@@ -16,11 +16,18 @@ namespace RPSLR2
             this.name = name;
         }
         // Member Methods (CAN DO)
-        public override string MakeMove()
+        public override string MakeMove(int numberOfComputers)
         {
-            Console.WriteLine("\r\n" + "Please Pick A Weapon. (Rock, Paper, Scissors, Lizard, Spock)");
+            if (numberOfComputers == 0)
+            {
+                Console.WriteLine("\r\n" + this.name + ": Please Pick A Weapon. (Rock, Paper, Scissors, Lizard, Spock)");
+            }
+            else
+            {
+                Console.WriteLine("\r\n" + "Please Pick A Weapon. (Rock, Paper, Scissors, Lizard, Spock)");
+            }    
             move = Console.ReadLine().ToLower();
-            if (move == "rock" || move == "paper" || move == "scissors" || move == "lizard" || move == "spock")
+            if (move == listOfGestures[0] || move == listOfGestures[1] || move == listOfGestures[2] || move == listOfGestures[3] || move == listOfGestures[4])
             {
                 return move;
             }

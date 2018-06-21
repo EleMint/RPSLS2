@@ -29,7 +29,7 @@ namespace RPSLR2
             this.PickGameMode();
             do
             {
-                player1Move = player1.MakeMove();
+                player1Move = player1.MakeMove(numberOfComputers);
                 if(numberOfComputers == 2)
                 {
                     Console.ReadLine();
@@ -38,7 +38,7 @@ namespace RPSLR2
                 {
                     Console.Clear();
                 }
-                player2Move = player2.MakeMove();
+                player2Move = player2.MakeMove(numberOfComputers);
                 if (numberOfComputers == 2)
                 {
                     Console.ReadLine();
