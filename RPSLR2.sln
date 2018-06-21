@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPSLR2", "RPSLR2\RPSLR2.csproj", "{A81A700E-B08B-48F3-86E9-E60FB40E118F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A81A700E-B08B-48F3-86E9-E60FB40E118F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81A700E-B08B-48F3-86E9-E60FB40E118F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81A700E-B08B-48F3-86E9-E60FB40E118F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81A700E-B08B-48F3-86E9-E60FB40E118F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {42DD7618-4323-4F09-A661-17745AEF80B9}
+	EndGlobalSection
+EndGlobal
