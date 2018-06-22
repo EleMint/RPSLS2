@@ -22,8 +22,6 @@ namespace RPSLR2
             listOfGestures.Add("spock");
         }
 
-        
-
         // Member Methods (CAN DO)
         public virtual string MakeMove(int numberOfComputers)
         {

@@ -25,7 +25,6 @@ namespace RPSLR2
 
         public void RunGame()
         {
-            // "Master Method"
             this.PickGameMode();
             do
             {
